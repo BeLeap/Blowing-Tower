@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4363634614771488641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4363634614771488640}
+  - component: {fileID: 4363634614771488643}
+  m_Layer: 0
+  m_Name: SlingshotItemPackage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4363634614771488640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363634614771488641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25194716, y: 0.74937373, z: 1.7107804}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4363634614771488643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363634614771488641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f83db71b9a6764abf964ab7679f035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Slingshot
+  packageType: 1
+  itemPrefab: {fileID: 6073659517109243658, guid: baa7285ff0ccf2e4ca87c50f7492ba01,
+    type: 3}
+  otherHandItemPrefab: {fileID: 3017033945819496340, guid: 34cd6dd4717dd7a4f800a21783b57b87,
+    type: 3}
+  previewPrefab: {fileID: 6073659517109243658, guid: 741b0db8244d1f245adf781f5a15dba5,
+    type: 3}
+  fadedPreviewPrefab: {fileID: 6073659517109243658, guid: 5420bc1a55c63524e976bd28d34b5c69,
+    type: 3}

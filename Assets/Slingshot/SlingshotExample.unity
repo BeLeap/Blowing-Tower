@@ -1218,7 +1218,17 @@ PrefabInstance:
     - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
         type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114121, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: distanceToHang
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114121, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: maxDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}

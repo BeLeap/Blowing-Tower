@@ -5,11 +5,17 @@ using Valve.VR.InteractionSystem;
 
 public class Sling : MonoBehaviour
 {
-    private Hand hand;
+    private GameManager gameManager;
 
-    private void OnAttachToHand(Hand attachedHand)
+    private void Start()
     {
-        hand = attachedHand;
+        gameManager = GameManager.Instance;
+        gameManager.slingShot = this.gameObject;
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.slingShot = null;
     }
 
     private void OnDetachFromhand(Hand hand)

@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Slingshot\GameManager.cs" />
     <Compile Include="Assets\Slingshot\Sling.cs" />
     <Compile Include="Assets\Slingshot\Stone.cs" />
     <Reference Include="UnityEngine">

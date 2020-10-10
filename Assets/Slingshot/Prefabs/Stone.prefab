@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 14f4f0cbf38b8304ab837e467eeaafb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToHang: 0.01
+  maxDistance: 5
   linePrefab: {fileID: 6948991481632370344, guid: 914a99b8a5a0f344eb8fa6a53be2a33b,
     type: 3}
 --- !u!114 &-2384911570269611735

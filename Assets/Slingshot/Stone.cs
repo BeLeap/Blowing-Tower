@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -9,6 +10,7 @@ public class Stone : MonoBehaviour
 {
     public float distanceToHang = 0.2f;
     public float maxDistance = 5.0f;
+    public float force = 1.0f;
 
     private Interactable interactable;
     private GameManager gameManager;
@@ -18,7 +20,7 @@ public class Stone : MonoBehaviour
     public GameObject linePrefab;
     private List<GameObject> lines;
 
-    private bool isReadyToShoot;
+    private bool isHang;
     private bool isGrabbed;
 
     private void Start()
@@ -27,7 +29,7 @@ public class Stone : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gameManager = GameManager.Instance;
         lines = new List<GameObject>();
-        isReadyToShoot = false;
+        isHang = false;
     }
 
     void DrawLine(Vector3 start, Vector3 end)
@@ -43,6 +45,7 @@ public class Stone : MonoBehaviour
 
     void DrawTwoLine(Vector3 start, Vector3 left, Vector3 right)
     {
+        isHang = true;
         DrawLine(start, left);
         DrawLine(start, right);
     }
@@ -66,72 +69,60 @@ public class Stone : MonoBehaviour
             Destroy(line);
 
         lines = new List<GameObject>();
+        isHang = false;
     }
 
-
-    private void Update()
+    void ManageLine(GameObject slingshot)
     {
-        GameObject slingShot = gameManager.slingShot;
-
-        if (slingShot)
+        if (slingshot != null)
         {
-            GameObject socket = slingShot.transform.GetChild(0).gameObject;
-            GameObject left = slingShot.transform.GetChild(1).gameObject;
-            GameObject right = slingShot.transform.GetChild(2).gameObject;
-
-            float distance = Vector3.Distance(socket.transform.position, gameObject.transform.position);
-
             if (isGrabbed == true)
             {
-                if (distance < distanceToHang)
-                    isReadyToShoot = true;
+                GameObject socket = slingshot.transform.GetChild(0).gameObject;
+                GameObject left = slingshot.transform.GetChild(1).gameObject;
+                GameObject right = slingshot.transform.GetChild(2).gameObject;
 
-                if (isReadyToShoot == true)
+                float distance = Vector3.Distance(this.transform.position, socket.transform.position);
+
+                if (lines.Count >= 2)
                 {
-                    if (lines.Count >= 2)
-                        UpdateTwoLine(this.gameObject.transform.position, left.transform.position, right.transform.position);
-                    else
-                        DrawTwoLine(socket.transform.position, left.transform.position, right.transform.position);
+                    if (distance > maxDistance) DestroyLine();
+                    else UpdateTwoLine(this.transform.position, left.transform.position, right.transform.position);
+                }
 
-                    if (distance > maxDistance)
-                        Shoot();
+                else if (distance < distanceToHang)
+                {
+                    DrawTwoLine(this.transform.position, left.transform.position, right.transform.position);
                 }
             }
 
             else
             {
-                if (isReadyToShoot == true && distance > maxDistance)
-                {
-                    isReadyToShoot = false;
-                    Shoot();
-                }
+                DestroyLine();
             }
         }
 
         else
-            DestroyLine();
-    }
-
-    void Shoot()
-    {
-        GameObject slingShot = gameManager.slingShot;
-
-        if (slingShot)
         {
-            GameObject socket = slingShot.transform.GetChild(0).gameObject;
-
-            float distance = Vector3.Distance(socket.transform.position, gameObject.transform.position);
-
-            Vector3 relativePos = socket.transform.position - this.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
-            Vector3 force = rotation.eulerAngles;
-            force = force * distance;
-            rb.AddForce(force);
-
             DestroyLine();
         }
+    }
 
-        isReadyToShoot = false;
+
+    private void Update()
+    {
+        GameObject slingshot = gameManager.slingshot;
+        ManageLine(slingshot);
+    }
+
+    void Shoot(Vector3 direction, Hand hand)
+    {
+        hand.DetachObject(gameObject);
+        hand.HoverUnlock(interactable);
+        rb.AddForce(direction * force);
+        DestroyLine();
+        isHang = false;
+        isGrabbed = false;
     }
 
     private Vector3 originalPositon;
@@ -159,9 +150,26 @@ public class Stone : MonoBehaviour
         }
         else if(isGrabEnding)
         {
-            if (isGrabbed == true)
-                Shoot();
             isGrabbed = false;
+            if (isHang == true)
+            {
+                GameObject slingshot = gameManager.slingshot;
+                if (slingshot)
+                {
+                    GameObject socket = slingshot.transform.GetChild(0).gameObject;
+
+                    Vector3 lineBetweenSocketAndStone = socket.transform.position - this.transform.position;
+
+                    Shoot(lineBetweenSocketAndStone, hand);
+                }
+            }
+            else
+            {
+                hand.DetachObject(gameObject);
+                hand.HoverUnlock(interactable);
+                transform.position = originalPositon;
+                transform.rotation = originalRotation;
+            }
         }
     }
 }

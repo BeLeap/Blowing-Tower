@@ -26,5 +26,5 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public GameObject slingShot = null;
+    public GameObject slingshot = null;
 }

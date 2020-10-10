@@ -10,12 +10,12 @@ public class Sling : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
-        gameManager.slingShot = this.gameObject;
+        gameManager.slingshot = this.gameObject;
     }
 
     private void OnDestroy()
     {
-        gameManager.slingShot = null;
+        gameManager.slingshot = null;
     }
 
     private void OnDetachFromhand(Hand hand)

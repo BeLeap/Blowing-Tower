@@ -66,6 +66,8 @@
     <Compile Include="Assets\Slingshot\GameManager.cs" />
     <Compile Include="Assets\Slingshot\Sling.cs" />
     <Compile Include="Assets\Slingshot\Stone.cs" />
+    <Compile Include="Assets\Wall &amp; Destruction\Scripts\CollisionEvent.cs" />
+    <Compile Include="Assets\Wall &amp; Destruction\Scripts\SoundManager.cs" />
     <None Include="Assets\External Assets\TSF\Shaders\TSF.shader" />
     <None Include="Assets\External Assets\TSF\Shaders\TSFOutline.shader" />
     <Reference Include="UnityEngine">

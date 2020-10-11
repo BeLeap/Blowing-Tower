@@ -127,7 +127,7 @@ MonoBehaviour:
   distanceToHang: 0.2
   maxDistance: 1.2
   force: 5000
-  linePrefab: {fileID: 6948991481632370344, guid: 914a99b8a5a0f344eb8fa6a53be2a33b,
+  linePrefab: {fileID: 279189982382639762, guid: 914a99b8a5a0f344eb8fa6a53be2a33b,
     type: 3}
 --- !u!114 &-2384911570269611735
 MonoBehaviour:

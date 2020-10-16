@@ -7,24 +7,17 @@ public class CollisionEvent : MonoBehaviour
 {
     public float collisionMagnitude = 2;
     public float collisionEventLimit = 3;
-    public SoundManager soundManager;
+    SoundManager soundManager;
     public GameObject particle;
-    
 
+    string name;
     uint collisionEventCount;
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(0.1f);
-        Instantiate(particle);
-        soundManager.playSound();
-        Destroy(gameObject);
-    }
-   
 
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        name = this.gameObject.name;
         collisionEventCount = 0;
     }
 
@@ -43,10 +36,14 @@ public class CollisionEvent : MonoBehaviour
 
             if(collisionEventCount == collisionEventLimit)
             {
-                Instantiate(particle);
-                soundManager.playSound();
+                GameObject particleObject = Instantiate(particle);
+                particleObject.transform.position = this.gameObject.transform.position;
+                particleObject.transform.rotation = this.gameObject.transform.rotation;
+                if (name.Contains("obstacle"))
+                    soundManager.playWoodSource();
+                else if(name.Contains("Enemy"))
+                    soundManager.playEnemySource();
                 Destroy(gameObject);
-                // StartCoroutine(Timer());
             }   
         }
     }

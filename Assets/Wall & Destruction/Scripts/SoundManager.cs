@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource enemySource;
+    public AudioSource woodSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,12 @@ public class SoundManager : MonoBehaviour
     {
     }
 
-    public void playSound()
+    public void playEnemySource()
     {
-        audioSource.Play();
+        enemySource.PlayOneShot(enemySource.clip);
+    }
+    public void playWoodSource()
+    {
+        woodSource.PlayOneShot(woodSource.clip);
     }
 }

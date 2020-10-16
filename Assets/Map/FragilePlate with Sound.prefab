@@ -125,5 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMagnitude: 2
   collisionEventLimit: 2
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 1500181308774295615, guid: af38efc3a83bea140a9e4cf6b25f7271,
+    type: 3}
   particle: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}

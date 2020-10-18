@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+
+        SteamVR.Initialize();
     }
 
     public GameObject slingshot = null;

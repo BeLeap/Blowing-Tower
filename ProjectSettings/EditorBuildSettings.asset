@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map/level_1/level_1.unity
     guid: c73e50d14f46eb842a65d672c6c0b061
+  - enabled: 1
+    path: Assets/Map/level_2/level_2.unity
+    guid: 48b81981c4d4fb9458e8e970a609b2a8
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e571e4397a562474483bd991356542ba,
       type: 2}

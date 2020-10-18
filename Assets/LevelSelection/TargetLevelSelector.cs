@@ -9,6 +9,14 @@ public class TargetLevelSelector : MonoBehaviour
     public int level;
     private void OnCollisionEnter(Collision collision)
     {
-        SceneManager.LoadScene("level_" + level.ToString(), LoadSceneMode.Single);
+        if (level == -1)
+        {
+            Application.Quit();
+        }
+
+        else
+        {
+            SceneManager.LoadScene("level_" + level.ToString(), LoadSceneMode.Single);
+        }
     }
 }

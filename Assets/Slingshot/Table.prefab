@@ -440,6 +440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}
 --- !u!4 &5647364117797131662 stripped
@@ -529,6 +534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}
@@ -856,6 +866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}
 --- !u!4 &8670167998076025627 stripped
@@ -946,6 +961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}
 --- !u!4 &504603018076406128 stripped
@@ -1020,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097590638689114119, guid: cf08747d96db47642b9c22c35b5c3a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf08747d96db47642b9c22c35b5c3a0d, type: 3}

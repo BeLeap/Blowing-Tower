@@ -12,6 +12,8 @@ public class Stone : MonoBehaviour
     public float maxDistance = 5.0f;
     public float force = 1.0f;
 
+    public float timeToLive = 10.0f;
+
     private Interactable interactable;
     private GameManager gameManager;
 
@@ -22,6 +24,7 @@ public class Stone : MonoBehaviour
 
     private bool isHang;
     private bool isGrabbed;
+    private bool isShoot;
 
     private void Start()
     {
@@ -30,6 +33,7 @@ public class Stone : MonoBehaviour
         gameManager = GameManager.Instance;
         lines = new List<GameObject>();
         isHang = false;
+        isShoot = false;
     }
 
     void DrawLine(Vector3 start, Vector3 end)
@@ -108,11 +112,21 @@ public class Stone : MonoBehaviour
         }
     }
 
+    private float timeCounter = 0.0f;
 
     private void Update()
     {
         GameObject slingshot = gameManager.slingshot;
         ManageLine(slingshot);
+
+        if (isShoot == true)
+        {
+            timeCounter += Time.deltaTime;
+            if (timeCounter > timeToLive)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     void Shoot(Vector3 direction, Hand hand)
@@ -123,6 +137,7 @@ public class Stone : MonoBehaviour
         DestroyLine();
         isHang = false;
         isGrabbed = false;
+        isShoot = true;
     }
 
     private Vector3 originalPositon;

@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LevelSelection\AddBallInfinite.cs" />
     <Compile Include="Assets\LevelSelection\TargetLevelSelector.cs" />
     <Compile Include="Assets\Map\LevelGameManagerScript.cs" />
     <Compile Include="Assets\Map\MinimapToggleScript.cs" />

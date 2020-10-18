@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LevelSelection/LevelSelection.unity
+    guid: 90bfaee5885d2d74a84922e16dab0a5e
+  - enabled: 1
+    path: Assets/Map/level_1/level_1.unity
+    guid: c73e50d14f46eb842a65d672c6c0b061
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e571e4397a562474483bd991356542ba,
       type: 2}
